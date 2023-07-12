@@ -62,6 +62,7 @@ body {
         -50%,
         -50%
     ); /*move box to center, it is in relation to elemen it self*/
+    text-align: center;
 }
 
 .heading-primary {
@@ -69,6 +70,7 @@ body {
     text-transform: uppercase;
 
     backface-visibility: hidden; /*corrects animation shacking*/
+    margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -128,4 +130,75 @@ body {
         opacity: 1;
         transform: translate(0); /*back to initial state*/
     } /* finish */
+}
+
+@keyframes moveInBottom {
+    /*using usualy 2 properties - opacity and transform*/
+    0% {
+        opacity: 0;
+        transform: translateY(
+            30px
+        ); /*animation in Y direction, positive moving down*/
+    } /*start*/
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    } /* finish */
+}
+
+.btn:link,
+.btn:visited {
+    /* visited - when user already clicked once */
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block; /*do that if there are some paddings, inline-block treated as a text*/
+    border-radius: 100px;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.btn:hover {
+    transform: translateY(-3px); /*minus - go up*/
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    /*1st - offset x direction, 2nd - y direction, 3rd - blur, 4th - color*/
+}
+
+.btn:active {
+    transform: translateY(-1px); /*related to initial link state*/
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn::after {
+    /*pseudoelement is treated as a child of element*/
+    content: ''; /*always necessary*/
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /*appearance behind intitial button*/
+    transition: all 0.4s;
+}
+
+.btn-white::after {
+    background-color: white;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6); /*scale increase an element*/
+    opacity: 0; /*fading out*/
+}
+
+.btn-animated {
+    animation: moveInBottom 0.5s ease-out 0.75s; /*last for delay*/
+    animation-fill-mode: backwards; /*automaticaly applies the styles before animation starts*/
 }
