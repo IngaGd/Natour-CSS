@@ -8,10 +8,12 @@ Dark green: #28b485
 */
 
 /*universal selector*/
-* {
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /*borders and paddings are no longer added to the total widthor total height*/
+    box-sizing: inherit;
 }
 
 html {
@@ -27,6 +29,8 @@ body {
     line-height: 1.7; /*1.7 times bigger, then predefined*/
     color: #777;
     padding: 3rem;
+
+    box-sizing: border-box; /*borders and paddings are no longer added to the total widthor total height*/
 }
 
 .header {
