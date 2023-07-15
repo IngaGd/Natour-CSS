@@ -1,83 +1,3 @@
-/*universal selector*/
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit; }
-
-html {
-  /*root element*/
-  font-size: 62.5%;
-  /*root element to make 10px is bad practise, 
-    better in percent that user could change default browser font size*/ }
-
-body {
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  /* font-size: 16px; */
-  line-height: 1.7;
-  /*1.7 times bigger, then predefined*/
-  color: #777;
-  padding: 3rem;
-  box-sizing: border-box;
-  /*borders and paddings are no longer added to the total widthor total height*/ }
-
-.header {
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  /*fot element inside the box*/
-  background-position: top;
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
-  /*specify corners from top clock-wise (x y, x y, x y, x y)*/
-  /*https://bennettfeely.com/clippy/*/
-  position: relative;
-  /*img is inline element, thats why it is better to wrap it in div*/ }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    /*reference - where the top and left start to count will be header possition relative*/
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    /*is in relation with parent element (header)*/
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /*move box to center, it is in relation to elemen it self*/
-    text-align: center; }
-
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  backface-visibility: hidden;
-  /*corrects animation shacking*/
-  margin-bottom: 6rem; }
-  .heading-primary--main {
-    display: block;
-    /*block takes all width and create line-breaks*/
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
-    /**/
-    /*
-    animation-delay: 1s;
-    animation-iteration-count: 3; 
-    */ }
-  .heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    animation: moveInRight 1s ease-out;
-    /*shorter then above*/ }
-
 @keyframes moveInLeft {
   /*using usualy 2 properties - opacity and transform*/
   0% {
@@ -121,6 +41,31 @@ body {
     opacity: 1;
     transform: translate(0); }
   /* finish */ }
+
+/*universal selector*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  /*root element*/
+  font-size: 62.5%;
+  /*root element to make 10px is bad practise, 
+    better in percent that user could change default browser font size*/ }
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  /*1.7 times bigger, then predefined*/
+  color: #777;
+  padding: 3rem;
+  box-sizing: border-box;
+  /*borders and paddings are no longer added to the total widthor total height*/ }
 
 .btn:link, .btn:visited {
   /* visited - when user already clicked once */
@@ -176,3 +121,58 @@ body {
   /*last for delay*/
   animation-fill-mode: backwards;
   /*automaticaly applies the styles before animation starts*/ }
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  /*fot element inside the box*/
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  /*specify corners from top clock-wise (x y, x y, x y, x y)*/
+  /*https://bennettfeely.com/clippy/*/
+  position: relative;
+  /*img is inline element, thats why it is better to wrap it in div*/ }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    /*reference - where the top and left start to count will be header possition relative*/
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    /*is in relation with parent element (header)*/
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*move box to center, it is in relation to elemen it self*/
+    text-align: center; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  /*corrects animation shacking*/
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    /*block takes all width and create line-breaks*/
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /**/
+    /*
+    animation-delay: 1s;
+    animation-iteration-count: 3; 
+    */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out;
+    /*shorter then above*/ }

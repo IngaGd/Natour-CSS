@@ -1,0 +1,25 @@
+/*universal selector*/
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    /*root element*/
+    font-size: 62.5%; /*root element to make 10px is bad practise, 
+    better in percent that user could change default browser font size*/
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    /* font-size: 16px; */
+    line-height: 1.7; /*1.7 times bigger, then predefined*/
+    color: $color-grey-dark;
+    padding: 3rem;
+
+    box-sizing: border-box; /*borders and paddings are no longer added to the total widthor total height*/
+}
