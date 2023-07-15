@@ -1,0 +1,22 @@
+{
+    "name": "natours",
+    "version": "1.0.0",
+    "description": "Page for css animation",
+    "main": "index.js",
+    "scripts": {
+        "compole:sass": "node-sass sass/main.scss css/style.css -w"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/IngaGd/Natour-CSS.git"
+    },
+    "author": "Inga",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/IngaGd/Natour-CSS/issues"
+    },
+    "homepage": "https://github.com/IngaGd/Natour-CSS#readme",
+    "devDependencies": {
+        "node-sass": "^9.0.0"
+    }
+}
