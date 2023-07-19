@@ -1,0 +1,45 @@
+.card {
+    perspective: 150rem; //the lower value, the more dramatic perspective effect
+    --moz-perspective: 150rem; //for firefox
+    position: relative;
+    height: 50rem;
+
+    &__side {
+        color: white;
+        font-size: 5rem;
+        height: 50rem;
+        transition: all 0.8s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden;
+        border-radius: 3px;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+        &--front {
+            background-color: $color-white;
+        }
+
+        &--back {
+            background-color: rgb(114, 73, 58);
+            transform: rotateY(180deg);
+
+            &-1 {
+                background-image: linear-gradient(
+                    to right bottom,
+                    $color-secondary-light,
+                    $color-secondary-dark
+                );
+            }
+        }
+    }
+
+    &:hover &__side--front {
+        transform: rotateY(180deg); // rotating effect when hower
+    }
+
+    &:hover &__side--back {
+        transform: rotateY(0); // rotating effect when hower
+    }
+}
