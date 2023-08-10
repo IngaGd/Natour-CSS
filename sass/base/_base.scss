@@ -12,6 +12,21 @@ html {
     //this font size defines, what 1 rem is.
     font-size: 62.5%; /*root element to make 10px is bad practise, 
     better in percent that user could change default browser font size*/
+    @include respond(phone) {
+        font-size: 50%;
+    }
+
+    @include respond(tab-port) {
+        font-size: 60%;
+    }
+
+    @include respond(tab-land) {
+        font-size: 70%;
+    }
+
+    @include respond(big-desktop) {
+        font-size: 80%;
+    }
 }
 
 body {
