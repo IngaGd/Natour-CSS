@@ -11,17 +11,16 @@ html {
     /*root element*/
     //this font size defines, what 1 rem is.
     font-size: 62.5%; /*root element to make 10px is bad practise, 
-    better in percent that user could change default browser font size*/
-    @include respond(phone) {
-        font-size: 50%;
+    better in percent that user could change default browser font size, 1rem = 10px, 10px/16px = 62.5%*/
+
+    @include respond(tab-land) {
+        // width < 1200 px
+        font-size: 56, 25%; //1rem - 9px, 9/16 = 56,25%
     }
 
     @include respond(tab-port) {
-        font-size: 60%;
-    }
-
-    @include respond(tab-land) {
-        font-size: 70%;
+        // width < 900 px
+        font-size: 50%; //1rem - 8px, 8/16 = 50%
     }
 
     @include respond(big-desktop) {
@@ -30,12 +29,10 @@ html {
 }
 
 body {
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    /* font-size: 16px; */
-    line-height: 1.7; /*1.7 times bigger, then predefined*/
-    color: $color-grey-dark;
+    box-sizing: border-box; /*borders and paddings are no longer added to the total widthor total height*/
     padding: 3rem;
 
-    box-sizing: border-box; /*borders and paddings are no longer added to the total widthor total height*/
+    @include respond(tab-port) {
+        padding: 0;
+    }
 }

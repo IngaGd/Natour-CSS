@@ -15,6 +15,10 @@
         100% 75vh,
         0 100%
     ); /*specify corners from top clock-wise (x y, x y, x y, x y)*/
+
+    @include respond(phone) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
     /*https://bennettfeely.com/clippy/*/
     position: relative;
 
