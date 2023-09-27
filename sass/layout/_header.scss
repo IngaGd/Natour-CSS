@@ -1,5 +1,5 @@
 .header {
-    height: 95vh;
+    height: 85vh;
     background-image: linear-gradient(
             to right bottom,
             rgba($color-primary-light, 0.8),
@@ -8,16 +8,22 @@
         url(../img/hero-small.jpg);
     background-size: cover; /*fot element inside the box*/
     background-position: top;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    clip-path: polygon(
-        0 0,
-        100% 0,
-        100% 75vh,
-        0 100%
-    ); /*specify corners from top clock-wise (x y, x y, x y, x y)*/
+    position: relative;
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        clip-path: polygon(
+            0 0,
+            100% 0,
+            100% 75vh,
+            0 100%
+        ); /*specify corners from top clock-wise (x y, x y, x y, x y)*/
+        height: 95vh;
+    }
 
     @media (min-resolution: 192dpi) and (min-width: 37.5em),
-        (min-width: 125em) {
+        (-webkit-min-device-pixe-ratio: 2) and (min-width: 125em) {
+        //-webkit-min-device-pixe-ratio: 2 - screen resolution is at least 2x
         //comma works as or
         //high resolution
         background-image: linear-gradient(
