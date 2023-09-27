@@ -5,7 +5,7 @@
             rgba($color-primary-light, 0.8),
             rgba($color-primary-dark, 0.8)
         ),
-        url(../img/hero.jpg);
+        url(../img/hero-small.jpg);
     background-size: cover; /*fot element inside the box*/
     background-position: top;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
@@ -15,6 +15,27 @@
         100% 75vh,
         0 100%
     ); /*specify corners from top clock-wise (x y, x y, x y, x y)*/
+
+    @media (min-resolution: 192dpi) and (min-width: 37.5em),
+        (min-width: 125em) {
+        //comma works as or
+        //high resolution
+        background-image: linear-gradient(
+                to right bottom,
+                rgba($color-primary-light, 0.8),
+                rgba($color-primary-dark, 0.8)
+            ),
+            url(../img/hero.jpg);
+    }
+
+    @media (min-width: 2000px) {
+        background-image: linear-gradient(
+                to right bottom,
+                rgba($color-primary-light, 0.8),
+                rgba($color-primary-dark, 0.8)
+            ),
+            url(../img/hero.jpg);
+    }
 
     @include respond(phone) {
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
